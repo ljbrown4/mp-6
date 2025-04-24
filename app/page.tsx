@@ -5,6 +5,7 @@ import SignIn from "@/components/sign-in";
 import SignOut from "@/components/sign-out";
 import Header from "@/components/header";
 import {Box} from "@mui/material";
+import Image from "next/image";
 
 export default function HomePage() {
     const { data: session } = useSession();
@@ -30,10 +31,11 @@ export default function HomePage() {
             <div className="min-h-screen w-full flex justify-center items-center bg-blue-100 text-black">
                 <Box className="flex flex-col items-center bg-white p-6 rounded-xl shadow-lg w-[75%] sm:w-[50%] lg:w-[35%]">
                     <h1 className="text-2xl font-semibold mb-4">Welcome, {session.user?.name}</h1>
-                    <img
-                        src={session.user?.image ?? ""}
+                    <Image
+                        src={session.user?.image ?? "/default-profile.png"}
                         alt="Profile picture"
-                        className="rounded-full w-40 h-40 mt-3 mb-3"
+                        width={50}
+                        height={50}
                     />
                     <p className="text-lg font-boldtext-gray-700 mb-4">{session.user?.email}</p>
                     <SignOut />

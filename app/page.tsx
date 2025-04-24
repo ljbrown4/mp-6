@@ -34,8 +34,9 @@ export default function HomePage() {
                     <Image
                         src={session.user?.image ?? "/default-profile.png"}
                         alt="Profile picture"
-                        width={50}
-                        height={50}
+                        width={160}
+                        height={160}
+                        className="rounded-full mt-3 mb-3"
                     />
                     <p className="text-lg font-boldtext-gray-700 mb-4">{session.user?.email}</p>
                     <SignOut />
